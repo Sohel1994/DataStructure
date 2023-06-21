@@ -43,6 +43,28 @@ void insertNode()
 
 }
 
+void insertNodeAtStart() // adding node at the start 
+{
+  Node *temp;
+  temp = createNode(); // creating node 
+  cout<<" please entre the value for list ";
+
+  cin>>temp->data;
+  temp->next = NULL; 
+  
+  if(START==NULL) // if list is empty 
+  {
+     cout<<" The list is empty"<<"\n";
+  } 
+
+  else 
+  {
+     temp->next = START;
+     START = temp; 
+  } 
+
+}
+
 void atStartDeletionNode() //deletion of node at the start
 {
    Node *t;
@@ -128,6 +150,11 @@ int main()
    atEndDeletionNode();
    cout<<" =================================== "<<"\n";
    cout<<" the list is after deletion at end : "<<"\n";
+   display();
+
+   insertNodeAtStart();
+   insertNodeAtStart();
+   insertNodeAtStart();
    display();
 }
 
