@@ -113,6 +113,21 @@ void atEndDeletionNode()  //  deletion of node at the end
 
 }
 
+bool searhElement( Node *head , int key)
+{
+    Node *current;
+    current = head;
+    
+    while(current!=NULL)
+    {
+        if(current->data == key)
+          return true;
+          current = current->next;
+    }
+    return false;
+
+}
+
 void display( )
 {
    Node *t;
@@ -140,21 +155,38 @@ int main()
    insertNode();
 
    display();
-   // deletion of node at the start
-   atStartDeletionNode();
-   cout<<" =================================== "<<"\n";
-   cout<<" the list is after deletion at start :"<<"\n";
-   display();
-   
-   // deletion of node at the end.
-   atEndDeletionNode();
-   cout<<" =================================== "<<"\n";
-   cout<<" the list is after deletion at end : "<<"\n";
-   display();
 
-   insertNodeAtStart();
-   insertNodeAtStart();
-   insertNodeAtStart();
+   int x ;
+   cout<<" Enter the element needs to find in the list "<<"\n";
+   cin>> x;
+
+   if(searhElement(START,x))
+   {
+   cout<<"element found in the list "<<"\n";
+   }
+   else
+   {
+   cout<<"element not found in the list "<<"\n";
+   }
+
+   
+   // // deletion of node at the start
+   // atStartDeletionNode();
+   // cout<<" =================================== "<<"\n";
+   // cout<<" the list is after deletion at start :"<<"\n";
+   // display();
+   
+   // // deletion of node at the end.
+   // atEndDeletionNode();
+   // cout<<" =================================== "<<"\n";
+   // cout<<" the list is after deletion at end : "<<"\n";
+   // display();
+
+   // insertNodeAtStart();
+   // insertNodeAtStart();
+   // insertNodeAtStart();
+    
+   
    display();
 }
 
