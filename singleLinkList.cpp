@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 class Node
@@ -146,47 +147,40 @@ void display( )
    }   
 }
 
+void findMiddleNode(Node *head) // find the middle node of list.
+{
+
+    vector<int> v;
+
+    if(head==NULL)
+    {
+      cout<<" the list is empty"<<" \n ";
+    }   
+    
+    while(head!=NULL)
+    {
+      v.push_back( head->data);
+      head=head->next;
+    }
+    cout<<"vector size is :" <<v.size();
+    cout<<"Middle Value Of Linked List is :";
+    cout<<v[v.size()/2]<<endl;
+
+}
+
 int main()
 {
-   insertNode();
-   insertNode();
-   insertNode();
-   insertNode();
-   insertNode();
+    int i;
+    cout<<" enter the value for no nodes required in list : "<<"\n";
+    cin >> i;
+    for ( ;i>0 ; i--)
+    {
+       insertNode();
+    }
+
 
    display();
 
-   int x ;
-   cout<<" Enter the element needs to find in the list "<<"\n";
-   cin>> x;
-
-   if(searhElement(START,x))
-   {
-   cout<<"element found in the list "<<"\n";
-   }
-   else
-   {
-   cout<<"element not found in the list "<<"\n";
-   }
-
-   
-   // // deletion of node at the start
-   // atStartDeletionNode();
-   // cout<<" =================================== "<<"\n";
-   // cout<<" the list is after deletion at start :"<<"\n";
-   // display();
-   
-   // // deletion of node at the end.
-   // atEndDeletionNode();
-   // cout<<" =================================== "<<"\n";
-   // cout<<" the list is after deletion at end : "<<"\n";
-   // display();
-
-   // insertNodeAtStart();
-   // insertNodeAtStart();
-   // insertNodeAtStart();
-    
-   
-   display();
+   findMiddleNode(START);
 }
 
