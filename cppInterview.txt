@@ -1,0 +1,194 @@
+
+C++ interview questions :- 
+
+1)What are the data types in C++
+permitive data type : char int short boolen etc.
+derived data type : Array , pointers. 
+enumuration data type : enum 
+user defined : structure and class.
+
+2)What are the class and Object in C++?
+class is user defined data type which is collection of data members and member function.
+data members are data variables and member functions are funtions performs operations on data variables.
+and object is instance of class since class is user defined data type so oject is varible of a class.
+
+3)What is the difference between structure and class?
+In C++ structure and class are same the main difference is the members of structure are public by default 
+while members of class privet by default.
+
+4)What is operator overloading ?
+This is very essintial element in C++ which we can modify defualt meaning of operators to perform operations
+on user defined data type.
+example : 
+class complex{
+  int r , i;
+  public:
+  complex( int a , int b):r{a},i{b}
+  { 
+     cout<<" this is initilization of memebers "<< r << " and " << i << " by parmeterized constructor"<<"\n";
+  }
+  
+  complex ( )
+  {
+    cout<<"default constructor called"<<"\n";
+  }
+  
+  complex operator +(complex c)
+  {
+     complex t;
+	 t.i = i + c.i;
+	 t.r = r + c.r;
+	 return t;
+  }
+  
+  void display()
+  {
+     cout<< r << "+" << i << "i" << "\n"; 
+  }
+};
+
+int main (){
+ 
+ complex a( 3 , 4 );
+ complex b( 5 , 7 );
+ complex c;
+ c=a+b;
+ c.display();
+}
+
+5)What is Polymorphisam in C++?
+simple meaning is which has many forms, which can be defined as it works different in different situation. 
+their are 2 types of polymorphism 
+1)compile time : operator overloading and function overloading.
+2)Run time : virtual function.
+
+6)What is inheritance?
+The properties and characterstics of one class is derived to form new class with its new features.
+the new class called derived class or child class.
+
+7) What is the constructor?
+the constuctor is spacial member function of class which automatically gets invoked when object of class is get created.
+the constuctor has no return type. 
+defaul constructor
+parameterised constuctor 
+copy constructor
+
+8)what is the virtual function?
+ virtual function is the member function of class which is redifined in the derived class.
+ when the function made virtual c++ determines which funtion is to be invoked at run time based on type of object pointed
+ by base class pointer.
+ 
+9)What is friend class and friend funtion?
+the class or function which can access the privet memebers of a class where they are decleared as friend.
+example:
+class A
+{
+    int n;
+	public:
+	A()
+   	{  n = 10;
+	   cout<<" class A constructor called"<<"\n";
+	}
+    friend int fun ( A );
+};
+
+int fun (A a)
+{
+    return a.n += 10; 
+}
+
+int main ()
+{
+   A b;
+   cout << " friend function called " << fun(b)<< "\n";
+}
+
+10)What is inline function?
+the compiler places the copy of the code where the function is called at compile time.
+
+11)What the reference ?
+reference is like pointer, it is aliace name of already existing varible;
+example:  
+int x = 10;
+int &ref = x; // reference variable 
+
+12)What is the abstraction?
+Is the processs of showing the essential details to the user and hiding backround details which are irrlevent to user.
+
+
+13)Destructor overloding is possible?
+NO not possible because destructor takes no arguments. so there is the only one way to destroy an object. 
+
+14) call by value and call by reference?
+  call by value : in function call we pass copy of the argument which does not affect the actual arguments.
+  call by refernce : in function call we pass the address of the actual arguments which affect them.
+example:
+void fun ( int *p , int * q)
+{
+    *p = 20;
+	*q = 30;
+}
+
+void fun2 ( int a , int b)
+{s
+    a = 40;
+	b = 50;
+}
+
+int main (){
+
+ int s, r;
+ s=2;
+ r=3;
+//  fun( &s,&r);
+fun2( s,r);
+cout<< s << " "<< r << "\n";
+
+}
+
+15)What is the abstract Class?
+the abstract class is class whose object can not be created it can be achived by defining atleast one pure virtual function in
+to the class.
+
+16) What is static member and static memeber function?
+ When the variable decleared as static in class the space allocated for it is life time of the program.
+ no matter how many object has been created for the class there is only one copy.
+ static members can be access by class name and scope resolution operator.
+ those are not initilize by constructor.
+example:
+class GfG 
+{
+public:
+	// static member function
+	static int i ;
+	static void printMsg() 
+	{ 
+	cout << "Welcome to GfG!"; 
+     i = 20;
+	}
+};
+int GfG::i=10;
+int main()
+{
+	cout<< GfG::i;
+	GfG::printMsg();
+	cout << "\n";
+	cout<< GfG::i;
+}
+
+17) What is copy constructor?
+ copy constructor is the member function of a class that initilizes the object using another object of same class.
+example :
+class A
+{
+ int x,y;
+ public:
+ A(){
+  cout<<"class A constructor called"; 
+ }
+};
+int main()
+{
+ A a;
+ A b = a; // default copy constructor called;
+}
