@@ -21,10 +21,20 @@ int *unionByMerging(int *c, int *a, int *b,int  n, int  m)
         }
         else
         {
-            c[k++] = a[i++];  // if both are same copy form one and increase both
-            j++;
+            c[k++] = b[j++];  // if both are same copy form one and increase both
+            i++;
         }
     }
+
+         for (;  i < n ; i++ ) // if elements remain in b array
+         {
+            c[k++] = a[i];
+         }
+
+         for (;  j < m ; j++ ) // if elements remain in b array
+         {
+            c[k++] = b[j];
+         }
 
     return c;
 }
@@ -89,7 +99,7 @@ cout << "\n";
 
 
     
-    for (int i = 0; ptr[i] != 0 ; ++i)
+    for (int i = 0; i<m+n ; ++i)
     {
         cout << ptr[i] << ", ";
     }
