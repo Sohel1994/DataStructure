@@ -15,6 +15,8 @@ struct node
 
 };
 
+struct node *head = nullptr;
+
 struct node *start = nullptr;
 
 void display( struct node *p)
@@ -86,6 +88,31 @@ void add_in_sorted_list( struct node *p)
      
 }
 
+void rotate_list_palace(int place)
+{
+
+     node *p = head;
+     node *q = head;
+
+     while ( p->next != nullptr)
+     {
+          p  = p->next;
+     }
+
+      p->next = head;
+     
+     for (int i = 0 ; i < place-1 ; i++)
+     {
+         q = q->next;
+     }
+     
+     head = q->next;
+     q->next = nullptr;
+     
+     
+
+}
+
 int main()
 {
      start = new node(7);
@@ -105,15 +132,20 @@ int main()
 
      cout << "\n ==============================================\n";
 
-     struct node *head = new node(1);
+     head = new node(1);
      head->next = new node(3);
      head->next->next = new node(5);
      head->next->next->next = new node(9);
      head->next->next->next->next = new node(11);
 
-     add_in_sorted_list(head);
+//      add_in_sorted_list(head);
 
-     cout <<" sorted list is \n";
-     display(head);
+//      cout <<" sorted list is \n";
+//      display(head);
+
+    rotate_list_palace(3);
+
+    display(head);
+
 
 }
