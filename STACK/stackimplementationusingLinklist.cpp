@@ -80,6 +80,17 @@ class Stack
              return top->data;
         }
 
+
+        int peak(int pos)
+        {
+             node *p = top;
+             for (int i = 0 ; p != nullptr && i < pos-1 ; i++)
+             {
+                p = p->next ;
+             }
+             return p->data;
+        }
+
 };
 
 int main ( )
@@ -100,6 +111,8 @@ int main ( )
     st.show();
     
     cout << "\n top " << st.Top() << " \n" ;
+
+    cout << "\n peak value " << st.peak(2) << "\n";
 
 
 }
