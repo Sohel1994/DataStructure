@@ -60,6 +60,20 @@ struct Stack{
           }      
        }
 
+       int peak( int pos)
+       {
+
+                if(!empty())
+                {
+                    return st[top - pos + 1] ; // top 4 , pos 1 then  st [(4 - 1) + 1] = 4
+                }
+                else
+                {
+                    return -1;
+                }
+
+       }
+
        ~Stack()
        {
              delete [] st;
@@ -86,7 +100,9 @@ int main()
 
         s.pop();
 
-        s.show() ; 
+        s.show() ;
+        
+        cout << " peak " << s.peak(2)<< "\n"; 
     
 
 }
